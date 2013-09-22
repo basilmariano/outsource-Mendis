@@ -1,0 +1,32 @@
+//
+// Prefix header for all source files of the 'PICClinicModel' target in the 'PICClinicModel' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import "NSTimer+Helper.h"
+    #import "PCAsyncImageView.h"
+    #import "PCListButton.h"
+    #import "PCNavigationController.h"
+    #import "PCTextField.h"
+    #import "PCTabBarItem.h"
+    #import "URLConnection.h"
+    #import "PCXibChecker.h"
+    #import "Singleton.h"
+    #import "PCRequestHandler.h"
+    #import "ZipArchive.h"
+    #import "JSONKit.h"
+    #import "PCModelManager.h"
+    #import <CoreData/CoreData.h>
+    #import "PCModelAnnotation.h"
+#endif
+
+#define DATA_KEY @"DATA_KEY_%@_%@"
+#define DATA_OFFLINE_KEY @"DATA_OFFLINE_KEY_%@_%@"
+#define SPINNER_ACTION_KEY @"SPINNER_ACTION_KEY"
+#define NO_CONNECTION_ALERTVIEW_WITH_TIMER @"NO_CONNECTION_ALERTVIEW"
+#define NO_CONNECTION_ALERTVIEW_WITH_TIMER_KEY @"NO_CONNECTION_ALERTVIEW_KEY"
+#define LOAD_WEBVIEW_KEY @"LOAD_WEBVIEW_KEY_%@"
+#define LOAD_WEBVIEW_ARTICLE_ID_KEY @"LOAD_WEBVIEW_ARTICLE_ID_KEY"
+#define LOAD_WEBVIEW_CONTENT_KEY @"LOAD_WEBVIEW_CONTENT_KEY"
+#define VERSION_CHECK_READY @"VERSION_CHECK_READY"

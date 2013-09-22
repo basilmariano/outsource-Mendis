@@ -1,0 +1,45 @@
+//
+// Prefix header for all source files of the 'Mendis' target in the 'Mendis' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import <QuartzCore/QuartzCore.h>
+#import "PCAsyncImageView.h"
+#import "PCTabBarController.h"
+#import "PCTabBarItem.h"
+#import "URLConnection.h"
+#import "PCXibChecker.h"
+#import "NSTimer+Helper.h"
+#import "MAAppDelegate.h"
+#import "Singleton.h"
+#import "PCRequestHandler.h"
+#import "PCListButton.h"
+#import "PCModelManager.h"
+#import "PCModelTableViewController.h"
+#import "PCModelWebViewController.h"
+#import "PCModelAnnotation.h"
+#import "SwipeView.h"
+#import "SMPageControl.h"
+#import "XCDeviceManager.h"
+
+#endif
+
+#define DATA_KEY @"DATA_KEY_%@_%@"
+#define DATA_OFFLINE_KEY @"DATA_OFFLINE_KEY_%@_%@"
+#define SPINNER_ACTION_KEY @"SPINNER_ACTION_KEY"
+#define NO_CONNECTION_ALERTVIEW_WITH_TIMER @"NO_CONNECTION_ALERTVIEW"
+#define NO_CONNECTION_ALERTVIEW_WITH_TIMER_KEY @"NO_CONNECTION_ALERTVIEW_KEY"
+#define LOAD_WEBVIEW_KEY @"LOAD_WEBVIEW_KEY_%@"
+#define LOAD_WEBVIEW_ARTICLE_ID_KEY @"LOAD_WEBVIEW_ARTICLE_ID_KEY"
+#define LOAD_WEBVIEW_CONTENT_KEY @"LOAD_WEBVIEW_CONTENT_KEY"
+#define VERSION_CHECK_READY @"VERSION_CHECK_READY"

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="11G63" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Appointment" representedClassName="Appointment" syncable="YES">
+        <attribute name="appointmentDate" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="appointmentTime" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="appointmentType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="clientName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="doctorName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fireDate" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="mobileNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reminderAlert" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="waist" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ArticleData" representedClassName="ArticleData" syncable="YES">
+        <attribute name="articleId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="articleIdVersion" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="filePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="folderPath" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="articleDataCheck" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ArticleDataCheck" inverseName="articleData" inverseEntity="ArticleDataCheck" syncable="YES"/>
+    </entity>
+    <entity name="ArticleDataCheck" representedClassName="ArticleDataCheck" syncable="YES">
+        <attribute name="articleId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="articleData" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ArticleData" inverseName="articleDataCheck" inverseEntity="ArticleData" syncable="YES"/>
+    </entity>
+    <entity name="ArticleVersionCheck" representedClassName="ArticleVersionCheck" syncable="YES">
+        <attribute name="articles" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="articleVersionData" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ArticleVersionData" inverseName="articleVersionCheck" inverseEntity="ArticleVersionData" syncable="YES"/>
+    </entity>
+    <entity name="ArticleVersionData" representedClassName="ArticleVersionData" syncable="YES">
+        <attribute name="articleId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="articleVersion" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="articleVersionCheck" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ArticleVersionCheck" inverseName="articleVersionData" inverseEntity="ArticleVersionCheck" syncable="YES"/>
+    </entity>
+    <entity name="ImageData" representedClassName="ImageData" syncable="YES">
+        <attribute name="articleId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="imageId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageSequenceId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="imageSliderData" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ImageSliderData" inverseName="imagesData" inverseEntity="ImageSliderData" syncable="YES"/>
+    </entity>
+    <entity name="ImageSliderData" representedClassName="ImageSliderData" syncable="YES">
+        <attribute name="imageSliderId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="imageSliderName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageSliderVersion" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="imagesData" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ImageData" inverseName="imageSliderData" inverseEntity="ImageData" syncable="YES"/>
+    </entity>
+    <entity name="ImageSlidersVersionCheck" representedClassName="ImageSlidersVersionCheck" syncable="YES">
+        <attribute name="imageSliders" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="imageSlidersVersionData" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ImageSlidersVersionData" inverseName="imageSliderVersionCheck" inverseEntity="ImageSlidersVersionData" syncable="YES"/>
+    </entity>
+    <entity name="ImageSlidersVersionData" representedClassName="ImageSlidersVersionData" syncable="YES">
+        <attribute name="imageSliderId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="imageSliderVersion" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="imageSliderVersionCheck" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ImageSlidersVersionCheck" inverseName="imageSlidersVersionData" inverseEntity="ImageSlidersVersionCheck" syncable="YES"/>
+    </entity>
+    <entity name="ListId" representedClassName="ListId" syncable="YES">
+        <attribute name="list_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="listIdNameVersionData" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ListIdNameVersionData" inverseName="listId" inverseEntity="ListIdNameVersionData" syncable="YES"/>
+        <relationship name="listItemsData" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ListItemsData" inverseName="listId" inverseEntity="ListItemsData" syncable="YES"/>
+    </entity>
+    <entity name="ListIdNameVersionData" representedClassName="ListIdNameVersionData" syncable="YES">
+        <attribute name="list_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="version" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="listId" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ListId" inverseName="listIdNameVersionData" inverseEntity="ListId" syncable="YES"/>
+    </entity>
+    <entity name="ListItemsData" representedClassName="ListItemsData" syncable="YES">
+        <attribute name="action_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="action_type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="image_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="item_desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="item_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="item_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="list_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="publish_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="sequence_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="listId" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ListId" inverseName="listItemsData" inverseEntity="ListId" syncable="YES"/>
+    </entity>
+    <entity name="ListVersionCheck" representedClassName="ListVersionCheck" syncable="YES">
+        <attribute name="list" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="listVersionData" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ListVersionData" inverseName="listVersionCheck" inverseEntity="ListVersionData" syncable="YES"/>
+    </entity>
+    <entity name="ListVersionData" representedClassName="ListVersionData" syncable="YES">
+        <attribute name="listId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="listVersion" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="listVersionCheck" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ListVersionCheck" inverseName="listVersionData" inverseEntity="ListVersionCheck" syncable="YES"/>
+    </entity>
+    <entity name="WishList" representedClassName="WishList" syncable="YES">
+        <attribute name="articleId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdDate" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="productCategory" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="productID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="productName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="productPrice" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Appointment" positionX="-623" positionY="243" width="128" height="210"/>
+        <element name="ArticleData" positionX="-218" positionY="675" width="128" height="120"/>
+        <element name="ArticleDataCheck" positionX="-441" positionY="720" width="128" height="75"/>
+        <element name="ArticleVersionCheck" positionX="-441" positionY="195" width="128" height="75"/>
+        <element name="ArticleVersionData" positionX="-218" positionY="180" width="128" height="90"/>
+        <element name="ImageData" positionX="-216" positionY="531" width="128" height="135"/>
+        <element name="ImageSliderData" positionX="-441" positionY="561" width="128" height="105"/>
+        <element name="ImageSlidersVersionCheck" positionX="-441" positionY="312" width="128" height="75"/>
+        <element name="ImageSlidersVersionData" positionX="-218" positionY="297" width="128" height="90"/>
+        <element name="ListId" positionX="-639" positionY="90" width="128" height="90"/>
+        <element name="ListIdNameVersionData" positionX="-432" positionY="0" width="128" height="105"/>
+        <element name="ListItemsData" positionX="-225" positionY="-63" width="128" height="195"/>
+        <element name="ListVersionCheck" positionX="-443" positionY="429" width="128" height="75"/>
+        <element name="ListVersionData" positionX="-218" positionY="414" width="128" height="90"/>
+        <element name="WishList" positionX="-765" positionY="243" width="128" height="135"/>
+    </elements>
+</model>
